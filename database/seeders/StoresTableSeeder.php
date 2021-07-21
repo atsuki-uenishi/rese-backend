@@ -19,7 +19,7 @@ class StoresTableSeeder extends Seeder
             'area_id' => '5',
             'genre_id' => '5',
             'overview' => '料理長厳選の食材から作る寿司を用いたコースをぜひお楽しみください。食材・味・価格、お客様の満足度を徹底的に追及したお店です。特別な日のお食事、ビジネス接待まで気軽に使用することができます。',
-            'img_path' => 'https://mysterious-plateau-61386.herokuapp.com/storage/sushi.jpeg'
+            'img_path' => 'https://mysterious-plateau-61386.herokuapp.com/storage/app/public/sushi.jpeg'
         ];
         $area = new Store;
         $area->fill($param)->save();
