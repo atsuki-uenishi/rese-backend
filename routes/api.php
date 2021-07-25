@@ -34,6 +34,9 @@ Route::group([
 Route::apiResources([
     '/v1/users' => UserController::class,
     '/v1/stores' => StoreController::class
+],
+[
+    'only' => ['index', 'show']
 ]);
 
 // Route::apiResource('/v1/users', UserController::class);
