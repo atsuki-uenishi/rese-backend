@@ -30,8 +30,8 @@ Route::group([
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::get('user', [AuthController::class, 'me']);
     Route::apiResources([
-        '/v1/likes' => LikeController::class,
-        '/v1/reservations' => ReservationController::class
+        'v1/likes' => LikeController::class,
+        'v1/reservations' => ReservationController::class
     ],
     [
         'only' => ['store', 'destroy']
