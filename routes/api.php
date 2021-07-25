@@ -40,7 +40,7 @@ Route::group([
     //     'v1/users.likes' => LikeController::class, 'getLikes',
     //     'v1/users.reservations' => ReservationController::class, 'getReservations'
     // ]);
-    Route::apiResource('v1/users.likes', LikeController::class);
+    Route::apiResource('v1/users.likes', UserController::class);
 });
 
 Route::apiResources([
