@@ -36,12 +36,16 @@ Route::group([
     [
         'only' => ['store', 'destroy']
     ]);
-    // Route::apiResources([
-    //     'v1/users.likes' => LikeController::class, 'getLikes',
-    //     'v1/users.reservations' => ReservationController::class, 'getReservations'
-    // ]);
-    Route::get('v1/users/{user_id}/likes', [LikeController::class, 'getLikes']);
-    Route::get('v1/users/{user_id}/reservations', [ReservationController::class, 'getReservations']);
+    Route::apiResources([
+        'v1/users.likes' => LikeController::class, 'getLikes',
+        'v1/users.reservations' => ReservationController::class, 'getReservations'
+    ],
+    [
+        'scoped' => ['users' => 'user_id']
+    ],
+    [
+        'only' => ['show',]
+    ]);
 });
 
 Route::apiResources([
