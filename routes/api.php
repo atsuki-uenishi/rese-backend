@@ -41,10 +41,10 @@ Route::group([
         'v1/users.reservations' => ReservationController::class, 'getReservations'
     ],
     [
-        'scoped' => ['users' => 'user_id']
+        'scoped'
     ],
     [
-        'only' => ['show',]
+        'only' => ['show']
     ]);
 });
 
