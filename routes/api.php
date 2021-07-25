@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LikeController;
@@ -28,24 +29,11 @@ Route::group([
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
     Route::get('user', [AuthController::class, 'me']);
-    Route::apiResource([
-        '/v1/users.likes' => LikeController::class, 'getLikes',
-        '/v1/users.reservations' => ReservationController::class, 'getReservations'
-    ]);
-    Route::apiResource([
-        '/v1/likes' => LikeController::class,
-        '/v1/reservations' => ReservationController::class
-    ],
-    [
-        'only' => ['store', 'destroy']
-    ]);
 });
 
-Route::apiResource([
-    '/v1/users' => UserController::class,
-    '/v1/stores' => StoreController::class,
-],
-[
-    'only' => ['index', 'show']
-]);
-
+Route::apiResource('/v1/users', UserController::class);
+Route::apiResource('/v1/stores', StoreController::class);
+Route::apiResource('/v1/likes', LikeController::class);
+Route::apiResource('/v1/reservations', ReservationController::class);
+Route::get('/v1/users/{user_id}/likes', [LikeController::class, 'getLikes']);
+Route::get('/v1/users/{user_id}/reservations', [ReservationController::class, 'getReservations']);
