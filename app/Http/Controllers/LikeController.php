@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Like;
-use App\Models\Store;
-use Illuminate\Support\Facades\DB;
 
 class LikeController extends Controller
 {
@@ -20,7 +18,7 @@ class LikeController extends Controller
         $item = Like::where('id', $like->id)->delete();
         if($item) {
             return response()->json([
-                'message' => 'お気に入りを解除しました。'
+                'message' => 'Successfully'
             ], 200);
         } else {
             return response()->json([
@@ -30,7 +28,7 @@ class LikeController extends Controller
     }
 
     public function getLikes($user_id) {
-        $item = Like::where('user_id', $user_id)->with('user')->with('store.area')->with('store.genre')->get();
+        $item = Like::where('user_id', $user_id)->with(['user', 'store.area', 'store.genre'])->get();
         return response()->json([
             'data' => $item
         ], 200);
