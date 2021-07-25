@@ -45,7 +45,8 @@ Route::apiResources([
     '/v1/users' => UserController::class,
     '/v1/stores' => StoreController::class,
 ],
-[
-    'only' => ['index', 'show']
-]);
+// [
+//     'only' => ['index', 'show']
+// ]
+);
 
