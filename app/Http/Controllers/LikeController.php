@@ -8,7 +8,7 @@ use App\Models\Like;
 class LikeController extends Controller
 {
     public function index() {
-        $items = Like::with(['user', 'store'])->get();
+        $items = Like::with(['user', 'store', 'store.area', 'store.genre'])->get();
         return response()->json([
             'data' => $items
         ], 200);
@@ -35,7 +35,7 @@ class LikeController extends Controller
     }
 
     public function getLikes($user_id) {
-        $item = Like::where('user_id', $user_id)->with(['user', 'store.area', 'store.genre'])->get();
+        $item = Like::where('user_id', $user_id)->with(['user', 'store', 'store.area', 'store.genre'])->get();
         return response()->json([
             'data' => $item
         ], 200);
