@@ -33,6 +33,13 @@ Route::group([
         '/v1/users.likes' => LikeController::class, 'getLikes',
         '/v1/users.reservations' => ReservationController::class, 'getReservations'
     ]);
+    Route::apiResources([
+        '/v1/likes' => LikeController::class,
+        '/v1/reservations' => ReservationController::class
+    ],
+    [
+        'only' => ['store', 'destroy']
+    ]);
 });
 
 Route::apiResources([
@@ -41,14 +48,6 @@ Route::apiResources([
 ],
 [
     'only' => ['index', 'show']
-]);
-
-Route::apiResources([
-    '/v1/likes' => LikeController::class,
-    '/v1/reservations' => ReservationController::class
-],
-[
-    'only' => ['store', 'destroy']
 ]);
 
 // Route::apiResource('/v1/users', UserController::class);
