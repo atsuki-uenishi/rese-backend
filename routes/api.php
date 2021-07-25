@@ -31,10 +31,13 @@ Route::group([
     Route::get('user', [AuthController::class, 'me']);
 });
 
-Route::apiResources([
-    '/v1/users', UserController::class,
-    '/v1/stores', StoreController::class
-]);
+// Route::apiResources([
+//     '/v1/users', UserController::class,
+//     '/v1/stores', StoreController::class
+// ]);
+
+Route::apiResource('/v1/users', UserController::class);
+Route::apiResource('/v1/stores', StoreController::class);
 Route::apiResource('/v1/likes', LikeController::class);
 Route::apiResource('/v1/reservations', ReservationController::class);
 Route::get('/v1/users/{user_id}/likes', [LikeController::class, 'getLikes']);
