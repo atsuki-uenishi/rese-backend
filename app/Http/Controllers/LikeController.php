@@ -7,6 +7,13 @@ use App\Models\Like;
 
 class LikeController extends Controller
 {
+    public function index() {
+        $items = Like::with(['user', 'store'])->get();
+        return response()->json([
+            'data' => $items
+        ], 200);
+    }
+
     public function store(Request $request) {
         $item = Like::create($request->all());
         return response()->json([
