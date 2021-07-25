@@ -7,6 +7,13 @@ use App\Models\Reservation;
 
 class ReservationController extends Controller
 {
+    public function index() {
+        $items = Reservation::with(['user', 'store'])->get();
+        return response()->json([
+            'data' => $items
+        ], 200);
+    }
+
     public function store(Request $request) {
         $item = Reservation::create($request->all());
         return response()->json([
