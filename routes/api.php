@@ -39,6 +39,9 @@ Route::group([
     Route::apiResources([
         'v1/users.likes' => LikeController::class,
         'v1/users.reservations' => ReservationController::class
+    ],
+    [
+        'only' => ['index']
     ]);
 });
 
