@@ -36,6 +36,10 @@ Route::group([
     [
         'only' => ['store', 'destroy']
     ]);
+    Route::apiResources([
+        'v1/users.likes' => LikeController::class, 'getLikes',
+        'v1/users.reservations' => ReservationController::class, 'getReservations'
+    ]);
 });
 
 Route::apiResources([
@@ -48,10 +52,7 @@ Route::apiResources([
 
 
 
-Route::apiResources([
-    '/v1/users.likes' => LikeController::class, 'getLikes',
-    '/v1/users.reservations' => ReservationController::class, 'getReservations'
-]);
+
 
 // Route::apiResource('/v1/users', UserController::class);
 // Route::apiResource('/v1/stores', StoreController::class);
