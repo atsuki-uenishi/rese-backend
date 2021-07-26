@@ -40,4 +40,22 @@ class ReservationController extends Controller
             'data' => $item
         ], 200);
     }
+
+    public function update(Request $request, Reservation $reservation) {
+        $update = [
+            'date' => $request->date,
+            'time' => $request->time,
+            'number' => $request->number
+        ];
+        $item = Reservation::where('id', $reservation->id)->update($update);
+        if($item) {
+            return response()->json([
+                'message' => 'Updated successfully',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Not found'
+            ], 404);
+        }
+    }
 }
