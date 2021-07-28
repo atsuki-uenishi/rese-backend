@@ -34,12 +34,12 @@ class ReservationController extends Controller
         }
     }
 
-    public function getReservations($user_id) {
-        $item = Reservation::where('user_id', $user_id)->with(['user', 'store'])->get();
-        return response()->json([
-            'data' => $item
-        ], 200);
-    }
+    // public function getReservations($user_id) {
+    //     $item = Reservation::where('user_id', $user_id)->with(['user', 'store'])->get();
+    //     return response()->json([
+    //         'data' => $item
+    //     ], 200);
+    // }
 
     public function update(Request $request, Reservation $reservation) {
         $update = [

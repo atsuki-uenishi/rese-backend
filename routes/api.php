@@ -34,7 +34,7 @@ Route::group([
     Route::apiResource('v1/likes', LikeController::class,)->only(['store', 'destroy']);
     Route::apiResources([
         'v1/reservations' => ReservationController::class,
-        'v1/review' => ReviewController::class
+        'v1/reviews' => ReviewController::class
     ],
     [
         'only' => ['store', ' destroy', 'update']
