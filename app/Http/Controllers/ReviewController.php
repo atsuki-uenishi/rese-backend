@@ -36,6 +36,7 @@ class ReviewController extends Controller
 
     public function update(Request $request, Review $review) {
         $update = [
+            'rating' => $request->rating,
             'review' => $request->review,
         ];
         $item = Review::where('id', $review->id)->update($update);

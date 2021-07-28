@@ -14,6 +14,7 @@ class Review extends Model
     public static $rules = array(
         'user_id' => 'required',
         'store_id' => 'required',
+        'rating' => 'required',
         'review' => 'required'
     );
 
