@@ -12,7 +12,6 @@ class Like extends Model
     protected $guarded = array('id');
 
     public static $rules = array(
-        'name' => 'required',
         'user_id' => 'required',
         'store_id' => 'required'
     );

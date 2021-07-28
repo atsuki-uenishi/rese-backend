@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Reservation extends Model
+class Review extends Model
 {
     use HasFactory;
 
@@ -14,9 +14,7 @@ class Reservation extends Model
     public static $rules = array(
         'user_id' => 'required',
         'store_id' => 'required',
-        'date' => 'required',
-        'time' => 'required',
-        'number' => 'required'
+        'review' => 'required'
     );
 
     public function user() {
