@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
-    public function index() {
-        $items = Review::with(['user', 'store'])->get();
+    public function show($store) {
+        $items = Review::where('store_id', $store->id)->with(['user', 'store'])->get();
         return response()->json([
             'data' => $items
         ], 200);

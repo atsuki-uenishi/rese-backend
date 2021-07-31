@@ -50,7 +50,7 @@ Route::group([
 
 Route::apiResource('/v1/users', UserController::class)->only('show');
 Route::apiResource('/v1/stores', StoreController::class)->only(['index','show']);
-Route::apiResource('/v1/stores.reviews', ReviewController::class)->shallow()->only('index');
+Route::apiResource('/v1/stores.reviews', ReviewController::class)->only('show');
 
 
 
