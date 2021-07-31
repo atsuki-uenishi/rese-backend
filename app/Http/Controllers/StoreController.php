@@ -14,7 +14,7 @@ class StoreController extends Controller
     }
 
     public function show(Store $store) {
-        $item = Store::with(['area', 'genre'])->where('id', $store->id)->first();
+        $item = Store::with(['area', 'genre', 'reservations', 'reviews'])->where('id', $store->id)->first();
         if($item) {
             return response()->json([
                 'data' => $item
