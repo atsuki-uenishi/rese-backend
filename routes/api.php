@@ -37,7 +37,7 @@ Route::group([
         'v1/reviews' => ReviewController::class
     ],
     [
-        'only' => ['store', ' destroy', 'update']
+        'only' => ['store', 'destroy', 'update']
     ]);
     Route::apiResources([
         'v1/users.likes' => LikeController::class,
