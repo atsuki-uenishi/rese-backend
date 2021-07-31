@@ -7,7 +7,7 @@ use App\Models\Store;
 class StoreController extends Controller
 {
     public function index() {
-        $items = Store::with(['area', 'genre', 'likes', 'reservations'])->get();
+        $items = Store::with(['area', 'genre', 'likes', 'reservations', 'reviews'])->get();
         return response()->json([
             'data' => $items
         ], 200);
